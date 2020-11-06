@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "247299293741",
+    "firebase_url": "https://pruebas-31407.firebaseio.com",
+    "project_id": "pruebas-31407",
+    "storage_bucket": "pruebas-31407.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247299293741:android:c36c111f4e3e90d8842ea4",
+        "android_client_info": {
+          "package_name": "com.example.appwicom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247299293741-2p89j7ooo3pmldsi2g25uu5hqlo0gn5u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appwicom",
+            "certificate_hash": "e74eee34ea6d4dd870cb236e0039b27b674c59a6"
+          }
+        },
+        {
+          "client_id": "247299293741-fuk7dt9qhpjind16q38gqp0oen2gg4i8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6XcWsefOCr0g3I4oqw9q9pNvWD99YnEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247299293741-fuk7dt9qhpjind16q38gqp0oen2gg4i8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
