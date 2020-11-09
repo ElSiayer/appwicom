@@ -1,8 +1,12 @@
+import 'package:appwicom/pantallas/pantallaPrincipal.dart';
+import 'package:appwicom/pantallas/registro.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import '../componentes/Drawer.dart';
+//import '../componentes/Drawer.dart';
+import '../pantallas/codiciones.dart';
+import '../pantallas/terminos.dart';
 
 enum authProblems { UserNotFound, PasswordNotValid, NetworkError }
 
@@ -28,7 +32,7 @@ class _LoginPage extends State<LoginPage> {
     return SafeArea(
         minimum: const EdgeInsets.all(5.0),
         child: Scaffold(
-            endDrawer: DrawerWicom(),
+            //endDrawer: DrawerWicom(),
             appBar: AppBar(
                 elevation: 20,
                 title: Text(widget.title),
@@ -112,12 +116,12 @@ class _LoginPage extends State<LoginPage> {
                                                   _passwordController.text)
                                               .then((valu) {
                                             if (valu == "OK") {
-                                              // Navigator.push(
-                                              //   context,
-                                              //   MaterialPageRoute(
-                                              //       builder: (context) =>
-                                              //           mainScreen()),
-                                              // );
+                                              Navigator.pushAndRemoveUntil(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          MainScreen()),
+                                                  (route) => false);
                                             } else {
                                               contra = valu;
                                               formKey.currentState.validate();
@@ -145,11 +149,11 @@ class _LoginPage extends State<LoginPage> {
                                 style: linkStyle,
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(
-                                    //       builder: (context) => SecondScreen()),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Registro()),
+                                    );
                                   })
                           ],
                         ),
@@ -162,14 +166,14 @@ class _LoginPage extends State<LoginPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               IconButton(
-                                icon: Image.asset('fonts/googleIco.png'),
+                                icon: Image.asset('img/googleIco.png'),
                                 iconSize: 15,
                                 onPressed: () async {
                                   await _signInWithGoogle();
                                 },
                               ),
                               IconButton(
-                                icon: Image.asset('fonts/facebookIco.png'),
+                                icon: Image.asset('img/facebookIco.png'),
                                 iconSize: 45,
                                 onPressed: () {},
                               )
@@ -192,12 +196,12 @@ class _LoginPage extends State<LoginPage> {
                                                 recognizer:
                                                     TapGestureRecognizer()
                                                       ..onTap = () {
-                                                        // Navigator.push(
-                                                        //   context,
-                                                        //   MaterialPageRoute(
-                                                        //       builder: (context) =>
-                                                        //           Condiciones()),
-                                                        // );
+                                                        Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  Condiciones()),
+                                                        );
                                                       })
                                           ],
                                         ),
@@ -216,13 +220,13 @@ class _LoginPage extends State<LoginPage> {
                                                 recognizer:
                                                     TapGestureRecognizer()
                                                       ..onTap = () {
-                                                        // Navigator.push(
-                                                        //   context,
-                                                        //   MaterialPageRoute(
-                                                        //       builder:
-                                                        //           (context) =>
-                                                        //               Terminos()),
-                                                        // );
+                                                        Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                              builder:
+                                                                  (context) =>
+                                                                      Terminos()),
+                                                        );
                                                       })
                                           ],
                                         ),
@@ -330,10 +334,10 @@ class _LoginPage extends State<LoginPage> {
     assert(user.user.uid == currentUser.uid);
     setState(() {
       if (user != null) {
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(builder: (context) => mainScreen()),
-        // );
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => MainScreen()),
+            (route) => false);
       }
     });
   }
